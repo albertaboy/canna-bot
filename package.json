@@ -1,0 +1,18 @@
+{
+  "name": "smooch-api-quickstart-example",
+  "version": "1.0.0",
+  "description": "Sample code to get started with the Smooch REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "spasiu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "express": "4.14.0",
+    "node-persist": "^2.0.10",
+    "smooch-core": "2.1.1",
+    "xhr2": "^0.1.4"
+  }
+}

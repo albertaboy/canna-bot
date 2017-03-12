@@ -1,0 +1,121 @@
+{   
+  "none": {
+    "next": "greeting_deals"
+  },
+  "greeting_deals": {
+    "message": [
+      "Hey there, I'm Canna 👋 I help you order medicine from [retail_name].",
+      [
+        "Would you like to know the weekly deals?",
+        "Would you like to hear about the weekly specials?", 
+        "Care to hear about the weekly deals?",
+        "Mind if I share the weekly specials with you?",
+        "Cool if I tell you about the weekly deals?"
+      ]
+    ], 
+    "static_responses": {
+      "yes": ["yes", "sure", "yes", "please", "please", "okay", "ok", "ye", "yea", "ya", "yup", "kk", "fine", "hell yes", "chea", "of course", "sure thing", "certainly", "surely", "undoubtedly", "absolutely", "mhmm", "go for it"],
+      "no": ["no", "nah", "nope", "na", "never", "no way", "no thanks", "pass", "negative"]
+    },
+    "response_topics": {
+      "yes": "display_deals",
+      "no": "exit"
+    }
+  },
+  "deals_prompt": {
+    "message": [
+      [
+        "Would you like to know the weekly deals?",
+        "Would you like to hear about the weekly specials?", 
+        "Care to hear about the weekly deals?",
+        "Mind if I share the weekly specials with you?",
+        "Cool if I tell you about the weekly deals?"
+      ]
+    ], 
+    "static_responses": {
+      "yes": ["yes", "sure", "yes", "please", "please", "okay", "ok", "ye", "yea", "yup", "ya", "yup", "kk", "fine", "hell yes", "chea", "of course", "sure thing", "certainly", "surely", "undoubtedly", "absolutely", "mhmm", "go for it"],
+      "no": ["no", "nah", "nope", "na", "never", "no way", "no thanks", "pass", "negative"]
+    },
+    "response_topics": {
+      "yes": "display_deals",
+      "no": "exit"
+    }
+  },
+  "exit": {
+    "message": "Sounds good! Just say hey if you need anything :)",
+    "next": "deals_prompt"
+  },
+  "display_deals": {
+    "message": "This week we're featuring:\n[products]\n\nYou can 'buy' or 'learn' more about a product (e.g. I'd like to buy 1), or simply ignore this message to pass on the deal :)",
+    "choice": {
+      "type": "number",
+      "prefixes": {
+        "learn": ["learn", "more", "lwarn", "learm", "lern", "moar", "mote"],
+        "buy": ["buy", "by", "bu", "byw", "byr", "get", "how about", "let's do", "lets do", "I want"] 
+      },
+      "prefix_topics": {
+        "learn": "learn_more",
+        "buy": "cart_quantity"
+      }
+    }
+  },
+  "learn_more": {
+    "message": [
+      "[description]\n\nWould you like to order it?"
+    ],
+    "choice": {
+      "prefixes": {
+        "learn": ["learn", "more", "lwarn", "learm", "lern", "moar", "mote"],
+        "buy": ["buy", "by", "bu", "byw", "byr", "get", "how about", "let's do", "lets do", "I want"] 
+      },
+      "prefix_topics": {
+        "learn": "learn_more",
+        "buy": "cart_quantity"
+      }
+    },
+    "static_responses": {
+      "yes": ["yes", "sure", "yes", "please", "please", "okay", "ok", "ye", "yea", "yup", "ya", "kk", "fine", "hell yes", "chea", "of course", "sure thing", "certainly", "surely", "undoubtedly", "absolutely", "mhmm"],
+      "no": ["no", "nah", "nope", "na", "never", "no way", "no thanks", "pass", "negative"]
+    },
+    "response_topics": {
+      "yes": "cart_quantity",
+      "no": "exit_deals"
+    }
+  },
+  "cart_quantity": {
+    "message": [
+      [
+        "Nice choice. How much are you looking for?\n\nHere are your options: [inventory]", 
+        "Cool, how much would you like?\n\nHere are your options: [inventory]", 
+        "Sweet. What quantity?\n\nHere are your options: [inventory]",
+        "Okay, how much do you feel like?\n\nHere are your options: [inventory]",
+        "Dope. How much do you want?\n\nHere are your options: [inventory]",
+        "Good call. What quantity?\n\nHere are your options: [inventory]"
+      ]
+    ],
+    "choice": true,
+    "next": "order_confirmation"
+  },
+  "order_confirmation": {
+    "message": "Got it. Here's what you're ordering:\n\n[order_overview]\n\nEverything look good?",
+    "static_responses": {
+      "yes": ["yes", "sure", "yes", "please", "please", "okay", "ok", "ye", "yea", "yup", "ya", "kk", "fine", "hell yes", "chea", "of course", "sure thing", "certainly", "surely", "undoubtedly", "absolutely", "mhmm"],
+      "no": ["no", "nah", "nope", "na", "never", "no way", "no thanks", "pass", "negative"]
+    },
+    "response_topics": {
+      "yes": "order_success",
+      "no": "exit_deals"
+    }
+  },
+  "order_success": {
+    "message": [
+      [
+        "Success. Your order is on its way! 😎",
+        "Your cannabis is on its way. ✅",
+        "All set! Expect to receive your order soon. ✌️",
+        "Your order is shipping! 📦",
+        "Voila! Your cannabis is on its way. 🔜"
+      ]
+    ]
+  }
+}
